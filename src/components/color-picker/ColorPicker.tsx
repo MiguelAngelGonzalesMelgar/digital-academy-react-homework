@@ -8,9 +8,12 @@ const ColorPicker = () => {
 	// state for adding colors
 	const [colors, setColors] = useState<string[]>([
 		"#ff5733",
-		"#FFC300",
+		"#ffc300",
 		"#581845",
 	]);
+
+	// State for background color
+	const [backgroundColor, setBackgroundColor] = useState<string>("#ffffff");
 
 	// handlers
 	const handleInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +28,12 @@ const ColorPicker = () => {
 			alert("This color is already in the list.");
 		}
 	};
+
+	const handleBackGroundChange = (color: string) => {
+		setBackgroundColor(color);
+		// Add color to body
+		document.body.style.backgroundColor = color;
+	};
 	return (
 		<main>
 			<h3>Wellcome! please select a background color:</h3>
@@ -37,7 +46,11 @@ const ColorPicker = () => {
 				onChange={handleInputValue}
 			/>
 			<button onClick={handleAddColor}>Add new color</button>
-			<ColorSwatches />
+			<ColorSwatches
+				colors={colors}
+				backgroundColor={backgroundColor}
+				onColorChange={handleBackGroundChange}
+			/>
 		</main>
 	);
 };
