@@ -1,7 +1,13 @@
 import "./App.css";
+import ColorPicker from "./components/color-picker/ColorPicker";
 
 function App() {
-	return <h1>My color picker</h1>;
+	return (
+		<>
+			<h2>My color picker</h2>
+			<ColorPicker />
+		</>
+	);
 }
 
 export default App;
