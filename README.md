@@ -1,54 +1,21 @@
-# React + TypeScript + Vite
+# React Assignment N 9
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Exercise 1
 
-Currently, two official plugins are available:
+- Build a component that lets users manage a list of colors and change the page background.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Users can add a color by typing a hex code (like #ff0000) into an input and pressing Add.
 
-## Expanding the ESLint configuration
+- The list of colors is displayed as small color swatches.
+  Clicking a color swatch changes the entire page background to that color.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Exercise 2
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Build a component that tracks and displays the current window width and height.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- On component mount, read current window size and display it.
+  Add a resize event listener to update width and height in state whenever the window resizes.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Clean up the event listener on unmount.
+  Hints:
+  Use window.innerWidth and window.innerHeight to get dimensions.
